@@ -1,0 +1,2 @@
+[workspace]
+members = ["hash", "encryptor", "main"]
