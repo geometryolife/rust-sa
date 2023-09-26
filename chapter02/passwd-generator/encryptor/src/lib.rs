@@ -1,14 +1,18 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+pub mod password; // 导出 password 模块
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use crate::password::generate_password;
 
     #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+    fn generate_password_works() {
+        let seed = "jdwnp";
+        let length = 16;
+        let passwd = generate_password(seed, length);
+
+        match passwd {
+            Ok(val) => println!("{:#?}", val),
+            Err(err) => println!("{:#?}", err)
+        }
     }
 }
